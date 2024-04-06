@@ -14,6 +14,8 @@ Secure Platform is a user management dashboard built using React and Redux for s
 - React Testing Library: A testing utility for testing React components.
 - Jest: A JavaScript testing framework.
 - Redux Persist: A library for persisting Redux state to local storage.
+- Yup & react-hook-form: Form handling and validation were facilitated by React Hook Form and yup respectively.
+- React Toastify - React Toastify provided notification feedback.
 
 ## Setup
 
@@ -47,3 +49,10 @@ To build the application for production, use the following command:
 `npm run build`
 
 This will create a production build of the application in the `build` directory.
+
+## Note
+
+Please note that, you can log in or register using the following credentials:
+
+- Email: `eve.holt@reqres.in`
+- Password: `cityslicka`
