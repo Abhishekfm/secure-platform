@@ -8,22 +8,13 @@ export interface InputProps {
   name: string;
   label?: string;
   type: string;
-  setValue?(name: string, value: any, index?: number): void;
-  getValues?(name: string): any;
   placeholder?: string;
   errors?: FieldErrors;
   register?: any;
-  className?: string;
   defaultValue?: string | number | null;
   value?: string | number | null;
   onChange?(content: string | number | Date): void;
-  index?: number;
-  externalError?: string;
   disabled?: boolean;
-  min?: number;
-  max?: number;
-  onInput?(content: string | number | Date): void;
-  keyDownFunction?: (e: any, content: string | number | Date) => void;
   isEvent?: boolean;
   isNested?: boolean;
 }
@@ -32,29 +23,20 @@ const Input = React.forwardRef<
   HTMLInputElement,
   React.PropsWithChildren<InputProps>
 >(
-  (
-    {
-      name,
-      label = "",
-      type,
-      placeholder = "",
-      errors,
-      register,
-      min,
-      externalError = "",
-      max,
-      className = "",
-      defaultValue,
-      value,
-      disabled = false,
-      onChange,
-      onInput,
-      keyDownFunction,
-      isEvent,
-      isNested,
-    },
-    ref
-  ) => {
+  ({
+    name,
+    label = "",
+    type,
+    placeholder = "",
+    errors,
+    register,
+    defaultValue,
+    value,
+    disabled = false,
+    onChange,
+    isEvent,
+    isNested,
+  }) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [inputPasswordType, setInputPasswordType] = useState<string>(type);
 
@@ -118,8 +100,6 @@ const Input = React.forwardRef<
           <p className="text-red-500 mt-2">
             {getNestedErrorMessage(errors, name)}
           </p>
-        ) : externalError?.length ? (
-          <p className="text-red-500 mt-2">{externalError}</p>
         ) : (
           errors &&
           errors[name] && (

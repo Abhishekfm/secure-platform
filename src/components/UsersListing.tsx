@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useGetUserListingMutation } from "../store/ApiService/userListing";
 import { useAppSelector } from "../store/hook/storeHook";
 import UserCard from "./UserCard";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function UserListingPage() {
   const [getUserListing, response] = useGetUserListingMutation();
@@ -14,7 +15,7 @@ export default function UserListingPage() {
 
   return (
     <>
-      {token &&
+      {token && response?.data?.data ? (
         response?.data?.data?.map((item) => (
           <UserCard
             key={item.id}
@@ -24,7 +25,10 @@ export default function UserListingPage() {
             last_name={item.last_name}
             avatar={item.avatar}
           />
-        ))}
+        ))
+      ) : (
+        <LoadingSpinner />
+      )}
     </>
   );
 }
