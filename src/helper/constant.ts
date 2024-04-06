@@ -14,3 +14,5 @@ export const APPLICATION_ENDPOINTS = {
 export const NUMBER = {
   ONE_HUNDRED: 100,
 };
+
+export const BACKEND_API_URL = "https://reqres.in";

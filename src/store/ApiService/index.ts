@@ -5,9 +5,10 @@ import {
 } from "@reduxjs/toolkit/query/react";
 import { Error } from "../../types/error";
 import { RootState } from "../store";
+import { BACKEND_API_URL } from "../../helper/constant";
 
 export const baseQuery = fetchBaseQuery({
-  baseUrl: "https://reqres.in",
+  baseUrl: BACKEND_API_URL,
   prepareHeaders: async (headers, { getState }) => {
     const token = (getState() as RootState).authReducer.token;
     if (token) {
